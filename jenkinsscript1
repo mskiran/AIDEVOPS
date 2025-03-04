@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo "Frist Stage"
+                echo 'Hello World'
+                echo "Testing if this is working as expected "
+            }
+        }
+        stage('Greetings'){
+            steps {
+                echo "Second Stage"
+                echo "Testing Second Stage"
+            }
+        }
+    }
+}
