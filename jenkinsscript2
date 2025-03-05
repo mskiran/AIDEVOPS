@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master',
+                    credentialsId: 'jenkinscred',
+                    url: 'https://github.com/mskiran/AIDEVOPS.get'
+            }
+            }
+        }
+        stage('Greetings'){
+            steps {
+                echo "Second Stage"
+                echo "Testing Second Stage"
+            }
+        }
+    }
+}
