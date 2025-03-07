@@ -1,8 +1,8 @@
 pipeline {
     agent any
      environment {
-        ANSIBLE_PLAYBOOK = '/root/ansible/run_test.sh.yml'
-        ANSIBLE_INVENTORY = '/root/ansible/hosts.ini'
+        ANSIBLE_PLAYBOOK = 'ansible/run_test.sh.yml'
+        ANSIBLE_INVENTORY = 'ansible/hosts.ini'
     }
 
     stages {
@@ -22,8 +22,8 @@ pipeline {
         }
         stage('Greetings'){
             steps {
-                echo "Second Stage"
-                echo "Testing Second Stage"
+                echo "Stage one is checkout "
+                echo "Stage two is run playbook"
             }
         }
     }
