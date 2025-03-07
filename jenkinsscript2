@@ -1,13 +1,23 @@
 pipeline {
     agent any
+     environment {
+        ANSIBLE_PLAYBOOK = '/root/ansible/run_test.sh.yml'
+        ANSIBLE_INVENTORY = '/root/ansible/hosts.ini'
+    }
 
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'master',
                     credentialsId: 'jenkinscred',
-                    url: 'https://github.com/mskiran/AIDEVOPS.get'
+                    url: 'https://github.com/mskiran/AIDEVOPS.git'
             }
+        }
+        
+
+        stage('Run Ansible Playbook') {
+            steps {
+                ansiblePlaybook playbook: ANSIBLE_PLAYBOOK, inventory: ANSIBLE_INVENTORY
             }
         }
         stage('Greetings'){
