@@ -1,0 +1,10 @@
+---
+- name: Run test.sh script on remote Linux instance
+  hosts: linux_instances
+  become: yes  # Optional: Use 'become' if you need to run the script as root (with sudo)
+  become_method: sudo
+  become_user: root
+  tasks:
+    - name: Execute the test.sh script
+      command: /root/test.sh   # Run the script
+
